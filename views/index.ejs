@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>
+    <%= title %>
+  </h1>
+  <p>
+    Te damos la bienvenida a <b>
+      <%= title %>
+    </b>, tu tienda de segunda mano.
+  </p>
+  <p>
+    Artículos disponibles:
+  </p>
+  <p>
+    <% if (adsList.length===0) {%>
+      No se ha encontrado ningún anuncio con tus criterios de búsqueda.
+      <% }%>
+  </p>
+  <ul>
+    <% for (let i=0; i < adsList.length; i++) { %>
+      <% const ad=adsList[i]; %>
+        <li>
+          <h2>
+            <%= ad.name %>
+          </h2>
+          <p>
+            Tipo de anuncio: <%= ad.sale ? 'Se vende' : 'Se busca' %>
+          </p>
+          <% if (ad.price) { %>
+            <p>
+              Precio: <%= ad.price %> €
+            </p>
+            <% } %>
+              <% if (ad.tag && ad.tag.length> 0) { %>
+                <p>
+                  Categoría: <%= ad.tag.join(', ') %> 
+          </p>
+        <% } %>
+        <% if (ad.picture) { %>
+          <p>
+            <img src="/images/<%=ad.picture%>">
+          </p>
+        <% } %>
+      </li>
+    <% } %>
+  </ul>
+</body>
+
+</html>

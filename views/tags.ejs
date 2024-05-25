@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tags</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <h1>Lista de tags disponibles</h1>
+    <ul>
+        <% for (let i=0; i < tags.length; i++) { %>
+            <li>
+                <%= tags[i] %>
+            </li>
+            <% } %>
+    </ul>
+</body>
+
+</html>

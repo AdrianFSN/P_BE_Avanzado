@@ -1,0 +1,199 @@
+[
+    {
+        "name": "IPhone 13",
+        "sale": true,
+        "price": 500,
+        "picture": "mobile.jpg",
+        "tag": [
+            "mobile",
+            "work"
+        ]
+    },
+    {
+        "name": "IPhone 500",
+        "sale": true,
+        "price": 500,
+        "picture": "mobile.jpg",
+        "tag": [
+            "mobile",
+            "work"
+        ]
+    },
+    {
+        "name": "Samsung Galaxy F4",
+        "sale": true,
+        "price": 600,
+        "picture": "mobile.jpg",
+        "tag": [
+            "mobile",
+            "work"
+        ]
+    },
+    {
+        "name": "Motorola Moto G23",
+        "sale": true,
+        "price": 130,
+        "picture": "mobile.jpg",
+        "tag": [
+            "mobile",
+            "work"
+        ]
+    },
+    {
+        "name": "Realme C51",
+        "sale": false,
+        "price": 85,
+        "picture": "mobile.jpg",
+        "tag": [
+            "mobile",
+            "work"
+        ]
+    },
+    {
+        "name": "Xiaomi Redmi Note 13",
+        "sale": false,
+        "price": 190,
+        "picture": "mobile.jpg",
+        "tag": [
+            "mobile",
+            "work"
+        ]
+    },
+    {
+        "name": "Leotec Smartwatch MultiSport",
+        "sale": true,
+        "price": 25,
+        "picture": "mobile.jpg",
+        "tag": [
+            "lifestyle"
+        ]
+    },
+    {
+        "name": "Olsson Fun Patinete Eléctrico",
+        "sale": true,
+        "price": 100,
+        "picture": "lifestyle.jpg",
+        "tag": [
+            "lifestyle"
+        ]
+    },
+    {
+        "name": "Freidora de Aire",
+        "sale": false,
+        "price": 30,
+        "picture": "lifestyle.jpg",
+        "tag": [
+            "lifestyle"
+        ]
+    },
+    {
+        "name": "Cafetera DeLonghi",
+        "sale": false,
+        "price": 100,
+        "picture": "lifestyle.jpg",
+        "tag": [
+            "lifestyle"
+        ]
+    },
+    {
+        "name": "Sony PlayStation 5 Slim",
+        "sale": true,
+        "price": 450,
+        "picture": "lifestyle.jpg",
+        "tag": [
+            "lifestyle"
+        ]
+    },
+    {
+        "name": "VOLKSWAGEN TOURAN SPORT 2.0 TDI",
+        "sale": true,
+        "price": 31500,
+        "picture": "motor.jpg",
+        "tag": [
+            "motor"
+        ]
+    },
+    {
+        "name": "CITROEN C3 PURETECH",
+        "sale": true,
+        "price": 11000,
+        "picture": "motor.jpg",
+        "tag": [
+            "motor"
+        ]
+    },
+    {
+        "name": "POLESTAR 2",
+        "sale": true,
+        "price": 51000,
+        "picture": "motor.jpg",
+        "tag": [
+            "motor"
+        ]
+    },
+    {
+        "name": "OPEL GRANDLAND X",
+        "sale": false,
+        "price": 10000,
+        "picture": "motor.jpg",
+        "tag": [
+            "motor"
+        ]
+    },
+    {
+        "name": "Vespa 125",
+        "sale": true,
+        "price": 2000,
+        "picture": "motor.jpg",
+        "tag": [
+            "motor",
+            "lifestyle"
+        ]
+    },
+    {
+        "name": "Mini Tractor",
+        "sale": false,
+        "price": 2300,
+        "picture": "work.jpg",
+        "tag": [
+            "motor",
+            "work"
+        ]
+    },
+    {
+        "name": "Prensa Multicapa",
+        "sale": true,
+        "price": 750,
+        "picture": "work.jpg",
+        "tag": [
+            "work"
+        ]
+    },
+    {
+        "name": "Palets",
+        "sale": false,
+        "price": 5,
+        "picture": "work.jpg",
+        "tag": [
+            "work"
+        ]
+    },
+    {
+        "name": "Carretilla Mano",
+        "sale": false,
+        "price": 15,
+        "picture": "work.jpg",
+        "tag": [
+            "work"
+        ]
+    },
+    {
+        "name": "Guantes Jardinería",
+        "sale": true,
+        "price": 25,
+        "picture": "work.jpg",
+        "tag": [
+            "work"
+        ]
+    }
+]
