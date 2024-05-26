@@ -9,8 +9,6 @@ const UniqueKeysRetriever = require("../utils/UniqueKeysRetriever");
 router.get("/", async function (req, res, next) {
   try {
     const tagsList = await UniqueKeysRetriever.getUniqueKeyValuesFromAPI("tag");
-    //console.log('Esto es tagList', tagsList) // Me va a dar un objeto con results: lista de tags
-    //console.log('Esto es tagList.results', tagsList.results) //Me da ls lista incluida en results
     res.render("tags", { tags: tagsList.results });
   } catch (error) {
     next(error);
