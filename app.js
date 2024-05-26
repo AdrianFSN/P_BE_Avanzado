@@ -1,14 +1,14 @@
-'use strict'
+"use strict";
 
-var createError = require('http-errors');
-var express = require('express');
-var helmet = require('helmet');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-const basicAuth = require('./lib/basicAuthMiddleware');
+var createError = require("http-errors");
+var express = require("express");
+var helmet = require("helmet");
+var path = require("path");
+var cookieParser = require("cookie-parser");
+var logger = require("morgan");
+const basicAuth = require("./lib/basicAuthMiddleware");
 
-require('./lib/connectMongoose');
+require("./lib/connectMongoose");
 
 /* var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users'); */
@@ -16,8 +16,8 @@ var usersRouter = require('./routes/users'); */
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
 /**
  * Middlewares
@@ -25,28 +25,29 @@ app.set('view engine', 'ejs');
 //app.locals.title = 'Este es el title de Nodepop';
 
 app.use(helmet());
-app.use(logger('dev'));
+app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
 /**
  * Rutas del API
  */
-app.use('/api/adsNodepop', require('./routes/api/ads'));
-app.use('/api/tags', require('./routes/api/availableTags'));
-app.use('/api/insert', basicAuth, require('./routes/api/insertOneAd'));
-app.use('/api/update', basicAuth, require('./routes/api/updateAd'));
-app.use('/api/delete', basicAuth, require('./routes/api/deleteAds'));
+app.use("/api/adsNodepop", require("./routes/api/ads"));
+app.use("/api/users", require("./routes/api/users"));
+app.use("/api/tags", require("./routes/api/availableTags"));
+app.use("/api/insert", basicAuth, require("./routes/api/insertOneAd"));
+app.use("/api/update", basicAuth, require("./routes/api/updateAd"));
+app.use("/api/delete", basicAuth, require("./routes/api/deleteAds"));
 
 /**
  * Rutas del website
  */
 
-app.use('/', require('./routes/index'));
-app.use('/users', require('./routes/users'));
-app.use('/tags', require('./routes/tags'));
+app.use("/", require("./routes/index"));
+app.use("/users", require("./routes/users"));
+app.use("/tags", require("./routes/tags"));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -67,17 +68,17 @@ app.use(function (err, req, res, next) {
 
   // Si el fallo es en el API
   // Responder en JSON
-  if (req.originalUrl.startsWith('/api/')) {
+  if (req.originalUrl.startsWith("/api/")) {
     res.json({ error: err.message });
     return;
-  };
+  }
 
   // set locals, only providing error in development
   res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  res.locals.error = req.app.get("env") === "development" ? err : {};
 
   // render the error page
-  res.render('error');
+  res.render("error");
 });
 
 module.exports = app;

@@ -1,25 +1,31 @@
 [
   {
+    "nickname": "TheBoss",
     "email": "admin@example.com",
     "password": "1234"
   },
   {
+    "nickname": "Angela",
     "email": "user@example.com",
     "password": "1234"
   },
   {
+    "nickname": "Joe89",
     "email": "second_user@example.com",
     "password": "1234"
   },
   {
+    "nickname": "Maculy",
     "email": "third_user@example.com",
     "password": "1234"
   },
   {
+    "nickname": "Fred45",
     "email": "fourth_user@example.com",
     "password": "1234"
   },
   {
+    "nickname": "Pam",
     "email": "fifth_user@example.com",
     "password": "1234"
   }

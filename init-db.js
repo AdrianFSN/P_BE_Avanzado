@@ -3,9 +3,8 @@ require("dotenv").config();
 
 const readline = require("node:readline");
 const connection = require("./lib/connectMongoose");
-const AdNodepop = require("./models/AdNodepop");
+const { AdNodepop, UserNodepop } = require("./models");
 const fs = require("fs");
-const UserNodepop = require("./models/UserNodepop");
 
 main().catch((err) => console.log("Ha habido un error", err));
 
