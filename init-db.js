@@ -5,6 +5,7 @@ const readline = require("node:readline");
 const connection = require("./lib/connectMongoose");
 const AdNodepop = require("./models/AdNodepop");
 const fs = require("fs");
+const UserNodepop = require("./models/UserNodepop");
 
 main().catch((err) => console.log("Ha habido un error", err));
 
@@ -18,6 +19,7 @@ async function main() {
     process.exit();
   }
 
+  await initUsersNodepop();
   await initAdsNodepop();
   connection.close();
 }
@@ -32,6 +34,17 @@ async function initAdsNodepop() {
   const inserted = await AdNodepop.insertMany(adsDataInList);
 
   console.log(`${inserted.length} ads have been added to the Data Base.`);
+}
+
+async function initUsersNodepop() {
+  const jsonAdsList = fs.readFileSync("./data/usersList.json", "utf-8");
+  const usersDataInList = JSON.parse(jsonAdsList);
+  const deleted = await UserNodepop.deleteMany();
+  console.log(`${deleted.deletedCount} users have been deleted from the Data Base`);
+
+  const inserted = await UserNodepop.insertMany(usersDataInList);
+
+  console.log(`${inserted.length} users have been added to the Data Base.`);
 }
 
 function askQuestion(text) {
