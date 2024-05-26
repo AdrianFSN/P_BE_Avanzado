@@ -2,10 +2,9 @@
 const AdNopop = require("../models/AdNodepop");
 
 class UniqueKeysRetriever {
-  static async getUniqueItemsInKeyList(key) {
+  static async getUniqueKeyValuesFromAPI(key) {
     try {
-      const keyToString = String(key);
-      const retrievedList = await AdNopop.distinct(keyToString);
+      const retrievedList = await AdNopop.distinct(key);
       return { results: retrievedList };
     } catch (error) {
       throw error;
