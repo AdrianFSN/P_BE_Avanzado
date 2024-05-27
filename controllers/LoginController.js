@@ -7,11 +7,11 @@ class LoginController {
       const { email, password } = req.body;
       const user = await UserNodepop.findOne({ email: email });
       if (!user || !(await user.comparePassword(password))) {
-        res.json({ error: `Invalid credentials for ${user.email}` });
+        res.json({ error: "Invalid credentials" });
         return;
       }
 
-      const tokenJWT = await jwt.sign({ userId: UserNodepop._id }, process.env.JWT_SECRET, {
+      const tokenJWT = await jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
         expiresIn: "2h",
       });
 

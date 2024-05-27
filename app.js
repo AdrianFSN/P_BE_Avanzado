@@ -37,7 +37,7 @@ app.use(express.static(path.join(__dirname, "public")));
 /**
  * Rutas del API
  */
-app.use("/api/adsNodepop", require("./routes/api/ads"));
+app.use("/api/adsNodepop", jwtAuth, require("./routes/api/ads"));
 app.use("/api/users", require("./routes/api/users"));
 app.post("/api/authenticate", loginController.postApiJWT);
 app.use("/api/tags", require("./routes/api/availableTags"));
