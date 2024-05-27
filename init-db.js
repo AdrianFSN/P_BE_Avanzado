@@ -53,8 +53,6 @@ async function initUsersNodepop() {
   console.log(`${deleted.deletedCount} users have been deleted from the Data Base`);
 
   const inserted = await UserNodepop.insertMany(usersDataInListHashedPass);
-  console.log("Esto es usersDataInListHashed: ", usersDataInListHashedPass);
-
   console.log(`${inserted.length} users have been added to the Data Base.`);
 }
 

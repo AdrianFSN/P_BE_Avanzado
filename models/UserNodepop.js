@@ -25,6 +25,11 @@ userSchema.statics.hashPassword = function (plainTextPassword) {
   return bcrypt.hash(plainTextPassword, 10);
 };
 
+// Password comparison method
+userSchema.methods.comparePassword = function (plainTextPassword) {
+  return bcrypt.compare(plainTextPassword, this.password);
+};
+
 const UserNodepop = mongoose.model("UserNodepop", userSchema);
 
 module.exports = UserNodepop;
