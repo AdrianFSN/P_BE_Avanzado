@@ -1,6 +1,7 @@
 "use strict";
 
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 
 const userSchema = mongoose.Schema({
   nickname: {
@@ -18,6 +19,11 @@ const userSchema = mongoose.Schema({
     required: true,
   },
 });
+
+// Password hash method
+userSchema.statics.hashPassword = function (plainTextPassword) {
+  return bcrypt.hash(plainTextPassword, 10);
+};
 
 const UserNodepop = mongoose.model("UserNodepop", userSchema);
 

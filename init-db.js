@@ -5,6 +5,7 @@ const readline = require("node:readline");
 const connection = require("./lib/connectMongoose");
 const { AdNodepop, UserNodepop } = require("./models");
 const fs = require("fs");
+const bcrypt = require("bcrypt");
 
 main().catch((err) => console.log("Ha habido un error", err));
 
@@ -38,10 +39,21 @@ async function initAdsNodepop() {
 async function initUsersNodepop() {
   const jsonAdsList = fs.readFileSync("./data/usersList.json", "utf-8");
   const usersDataInList = JSON.parse(jsonAdsList);
+  const usersDataInListHashedPass = await Promise.all(
+    usersDataInList.map(async (item) => {
+      const hashedPassword = await bcrypt.hash(item.password, 10);
+      return {
+        ...item,
+        password: hashedPassword,
+      };
+    })
+  );
+
   const deleted = await UserNodepop.deleteMany();
   console.log(`${deleted.deletedCount} users have been deleted from the Data Base`);
 
-  const inserted = await UserNodepop.insertMany(usersDataInList);
+  const inserted = await UserNodepop.insertMany(usersDataInListHashedPass);
+  console.log("Esto es usersDataInListHashed: ", usersDataInListHashedPass);
 
   console.log(`${inserted.length} users have been added to the Data Base.`);
 }
