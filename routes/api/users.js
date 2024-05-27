@@ -2,12 +2,11 @@ const express = require("express");
 const router = express.Router();
 const { UserNodepop } = require("../../models");
 
-router.get("/users", async function (req, res, next) {
+router.get("/", async function (req, res, next) {
   try {
-    const filterByNickname = req.query.nickname;
-    const nicknamesList = await UserNodepop.listCriterias(filterByNickname);
+    const usersNodepop = await UserNodepop.find();
 
-    res.json({ results: nicknamesList });
+    res.json({ results: usersNodepop });
   } catch (error) {
     next(error);
   }
