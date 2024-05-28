@@ -7,13 +7,16 @@ const { AdNodepop, UserNodepop } = require("./models");
 const fs = require("fs");
 const bcrypt = require("bcrypt");
 
-main().catch((err) => console.log("Ha habido un error", err));
+const jsonData = fs.readFileSync("./data/data.json", "utf-8");
+const data = JSON.parse(jsonData);
+
+main().catch((err) => console.log("There was an error initializing the data base", err));
 
 async function main() {
   await new Promise((resolve) => connection.once("open", resolve));
 
   const deleteDB = await askQuestion(
-    "Are you sure you want to delete all the content in the Data Base? This action can not be restored (No) "
+    "Are you sure you want to delete all the content in the data base? This action can not be restored (No) "
   );
   if (!deleteDB) {
     process.exit();
@@ -25,22 +28,17 @@ async function main() {
 }
 
 async function initAdsNodepop() {
-  const jsonAdsList = fs.readFileSync("./data/adsList.json", "utf-8");
-  const adsDataInList = JSON.parse(jsonAdsList);
-
   const deleted = await AdNodepop.deleteMany();
   console.log(`${deleted.deletedCount} ads have been deleted from the Data Base`);
 
-  const inserted = await AdNodepop.insertMany(adsDataInList);
+  const inserted = await AdNodepop.insertMany(data.ads);
 
   console.log(`${inserted.length} ads have been added to the Data Base.`);
 }
 
 async function initUsersNodepop() {
-  const jsonAdsList = fs.readFileSync("./data/usersList.json", "utf-8");
-  const usersDataInList = JSON.parse(jsonAdsList);
-  const usersDataInListHashedPass = await Promise.all(
-    usersDataInList.map(async (item) => {
+  const hashPassDataUsers = await Promise.all(
+    data.users.map(async (item) => {
       const hashedPassword = await bcrypt.hash(item.password, 10);
       return {
         ...item,
@@ -52,7 +50,7 @@ async function initUsersNodepop() {
   const deleted = await UserNodepop.deleteMany();
   console.log(`${deleted.deletedCount} users have been deleted from the Data Base`);
 
-  const inserted = await UserNodepop.insertMany(usersDataInListHashedPass);
+  const inserted = await UserNodepop.insertMany(hashPassDataUsers);
   console.log(`${inserted.length} users have been added to the Data Base.`);
 }
 
