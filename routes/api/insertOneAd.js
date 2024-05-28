@@ -10,6 +10,7 @@ const upload = require("../../lib/publicUploadConfigure");
 router.post("/", upload.single("image"), async (req, res, next) => {
   try {
     const data = req.body;
+    console.log("Esto es data en insertOne: ", data);
 
     // Save an instance of the ad in memory
     const newAd = new AdNopop(data);
