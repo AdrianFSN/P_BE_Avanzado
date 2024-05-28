@@ -56,7 +56,6 @@ async function initUsersNodepop() {
 
 function askQuestion(text) {
   return new Promise((resolve, reject) => {
-    // conectar readline con la consola
     const ifc = readline.createInterface({
       input: process.stdin,
       output: process.stdout,
