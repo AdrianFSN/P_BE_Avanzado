@@ -10,6 +10,7 @@
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cookie-parser": "~1.4.4",
+    "cote": "^1.0.3",
     "cross-env": "^7.0.3",
     "debug": "~2.6.9",
     "dotenv": "^16.4.5",
@@ -19,6 +20,7 @@
     "fs": "^0.0.1-security",
     "helmet": "^7.1.0",
     "http-errors": "~1.6.3",
+    "jimp": "^0.22.12",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.2.0",
     "morgan": "~1.9.1",

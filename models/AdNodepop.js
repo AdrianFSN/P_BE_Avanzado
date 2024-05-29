@@ -13,7 +13,7 @@ const adSchema = mongoose.Schema({
   sale: { type: Boolean, required: true, index: true },
   price: { type: Number, required: true, index: true },
   owner: { ref: "User", type: mongoose.Schema.ObjectId },
-  image: String,
+  image: { type: String, required: true },
   tag: {
     type: [String],
     validate: {
