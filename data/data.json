@@ -1,151 +1,64 @@
 {
   "ads": [
     {
-      "name": "IPhone 13",
-      "sale": true,
-      "price": 500,
-      "picture": "mobile.jpg",
-      "tag": ["mobile", "work"]
-    },
-    {
-      "name": "IPhone 500",
-      "sale": true,
-      "price": 500,
-      "picture": "mobile.jpg",
-      "tag": ["mobile", "work"]
-    },
-    {
-      "name": "Samsung Galaxy F4",
-      "sale": true,
-      "price": 600,
-      "picture": "mobile.jpg",
-      "tag": ["mobile", "work"]
-    },
-    {
-      "name": "Motorola Moto G23",
-      "sale": true,
-      "price": 130,
-      "picture": "mobile.jpg",
-      "tag": ["mobile", "work"]
-    },
-    {
-      "name": "Realme C51",
+      "_id": "6656fa90a38a980f9ee1d53f",
+      "name": "Sneakers all sizes",
       "sale": false,
-      "price": 85,
-      "picture": "mobile.jpg",
-      "tag": ["mobile", "work"]
+      "price": 10,
+      "owner": "6656054cd5c5a6cda0cdc7ae",
+      "tag": ["lifestyle"],
+      "image": "image-1716976272351-sneakers.jpg",
+      "__v": 0
     },
     {
-      "name": "Xiaomi Redmi Note 13",
-      "sale": false,
-      "price": 190,
-      "picture": "mobile.jpg",
-      "tag": ["mobile", "work"]
-    },
-    {
-      "name": "Leotec Smartwatch MultiSport",
-      "sale": true,
-      "price": 25,
-      "picture": "mobile.jpg",
-      "tag": ["lifestyle"]
-    },
-    {
-      "name": "Olsson Fun Patinete Eléctrico",
-      "sale": true,
-      "price": 100,
-      "picture": "lifestyle.jpg",
-      "tag": ["lifestyle"]
-    },
-    {
-      "name": "Freidora de Aire",
-      "sale": false,
-      "price": 30,
-      "picture": "lifestyle.jpg",
-      "tag": ["lifestyle"]
-    },
-    {
-      "name": "Cafetera DeLonghi",
-      "sale": false,
-      "price": 100,
-      "picture": "lifestyle.jpg",
-      "tag": ["lifestyle"]
-    },
-    {
-      "name": "Sony PlayStation 5 Slim",
-      "sale": true,
-      "price": 450,
-      "picture": "lifestyle.jpg",
-      "tag": ["lifestyle"]
-    },
-    {
-      "name": "VOLKSWAGEN TOURAN SPORT 2.0 TDI",
-      "sale": true,
-      "price": 31500,
-      "picture": "motor.jpg",
-      "tag": ["motor"]
-    },
-    {
-      "name": "CITROEN C3 PURETECH",
-      "sale": true,
-      "price": 11000,
-      "picture": "motor.jpg",
-      "tag": ["motor"]
-    },
-    {
-      "name": "POLESTAR 2",
-      "sale": true,
-      "price": 51000,
-      "picture": "motor.jpg",
-      "tag": ["motor"]
-    },
-    {
-      "name": "OPEL GRANDLAND X",
-      "sale": false,
-      "price": 10000,
-      "picture": "motor.jpg",
-      "tag": ["motor"]
-    },
-    {
-      "name": "Vespa 125",
-      "sale": true,
-      "price": 2000,
-      "picture": "motor.jpg",
-      "tag": ["motor", "lifestyle"]
-    },
-    {
-      "name": "Mini Tractor",
-      "sale": false,
-      "price": 2300,
-      "picture": "work.jpg",
-      "tag": ["motor", "work"]
-    },
-    {
-      "name": "Prensa Multicapa",
-      "sale": true,
-      "price": 750,
-      "picture": "work.jpg",
-      "tag": ["work"]
-    },
-    {
-      "name": "Palets",
-      "sale": false,
-      "price": 5,
-      "picture": "work.jpg",
-      "tag": ["work"]
-    },
-    {
-      "name": "Carretilla Mano",
+      "_id": "6656faeaa38a980f9ee1d542",
+      "name": "Typewriter",
       "sale": false,
       "price": 15,
-      "picture": "work.jpg",
-      "tag": ["work"]
+      "owner": "6656054cd5c5a6cda0cdc7ae",
+      "tag": ["work", "lifestyle"],
+      "image": "image-1716976362649-typewriter.jpg",
+      "__v": 0
     },
     {
-      "name": "Guantes Jardinería",
+      "_id": "6656fb82a38a980f9ee1d545",
+      "name": "Old radio",
+      "sale": false,
+      "price": 7,
+      "owner": "6656054cd5c5a6cda0cdc7ae",
+      "tag": ["lifestyle"],
+      "image": "image-1716976514356-old-radio.jpg",
+      "__v": 0
+    },
+    {
+      "_id": "6657030aa38a980f9ee1d557",
+      "name": "Fancy cabrio car",
       "sale": true,
-      "price": 25,
-      "picture": "work.jpg",
-      "tag": ["work"]
+      "price": 10500,
+      "owner": "6656054cd5c5a6cda0cdc7af",
+      "tag": ["motor", "lifestyle"],
+      "image": "image-1716978442786-cabrio_car.jpg",
+      "__v": 0
+    },
+    {
+      "_id": "66570370a38a980f9ee1d55a",
+      "name": "Electric guitar",
+      "sale": true,
+      "price": 750,
+      "owner": "6656054cd5c5a6cda0cdc7af",
+      "tag": ["lifestyle"],
+      "image": "image-1716978544304-electric-guitar.jpg",
+      "__v": 0
+    },
+    {
+      "_id": "6657073ca38a980f9ee1d55e",
+      "name": "Iphone",
+      "sale": true,
+      "price": 200,
+      "owner": "6656054cd5c5a6cda0cdc7b0",
+      "tag": ["work", "lifestyle", "mobile"],
+      "image": "image-1716979516926-phone.jpg",
+      "__v": 0
     }
   ],
 
