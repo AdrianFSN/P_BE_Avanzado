@@ -27,7 +27,7 @@ router.post("/", upload.single("image"), async (req, res, next) => {
     const insertedNewAd = await newAd.save();
     sendOrderToResizeEvent(filePath, (error, result) => {
       if (error) {
-        console.error("Error resizing image: ", err);
+        console.error("Error resizing image: ", error);
       } else {
         console.log("InsertedOneAd gets: ", result);
       }
