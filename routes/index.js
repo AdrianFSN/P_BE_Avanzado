@@ -66,16 +66,10 @@ router.get(
 
   async function (req, res, next) {
     try {
-      const i18nTags = {
-        mobile: "mobile",
-        work: "work",
-        lifestyle: "lifestyle",
-        motor: "motor",
-      };
-
-      //const i18nTags = i18n.__("tags");
-      console.log("Esto es i18nTags", i18nTags);
-      console.log("Esto es i18nTags.mobile", i18nTags.mobile);
+      const tagsToLocalizeWithI18n = {};
+      availableTags.map((tag) => {
+        tagsToLocalizeWithI18n[tag] = tag;
+      });
 
       validationResult(req).throw();
 
@@ -111,7 +105,7 @@ router.get(
 
       const adsList = await AdNopop.listCriterias(filter, skip, limit, sort, fields);
 
-      res.render("index", { title: "Nodepop", adsList, i18nTags });
+      res.render("index", { title: "Nodepop", adsList, tagsToLocalizeWithI18n });
     } catch (error) {
       next(error);
     }
