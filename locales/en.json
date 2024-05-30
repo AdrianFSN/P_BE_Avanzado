@@ -13,11 +13,12 @@
 		"mobile": "mobile",
 		"work": "work",
 		"lifestyle": "lifestyle",
-		"motor": "motor"
+		"motor": "motor",
+		"item": "lifestyle"
 	},
 	"your second hand store.": "your second hand store.",
 	"lifestyle": "lifestyle",
-	"work, lifestyle": "work, lifestyle",
-	"motor, lifestyle": "motor, lifestyle",
-	"work, lifestyle, mobile": "work, lifestyle, mobile"
+	"work": "work",
+	"motor": "motor",
+	"mobile": "mobile"
 }

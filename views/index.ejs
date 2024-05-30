@@ -46,7 +46,7 @@
               <% if (ad.tag && ad.tag.length> 0) { %>
                 <p>
                   <%= __("Category:") %>
-                    <%= __(ad.tag.join(', ')) %> 
+                    <%= ad.tag.map(item=> i18nTags.item = __(item)).join(', ') %>
 
                 </p>
 
