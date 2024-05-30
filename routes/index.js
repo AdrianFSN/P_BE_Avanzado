@@ -4,7 +4,14 @@ var router = express.Router();
 const AdNopop = require("../models/AdNodepop");
 const { query, validationResult } = require("express-validator");
 const fs = require("fs");
-const i18n = require("../lib/i18nConfigure");
+
+const jsonTagsList = fs.readFileSync("./data/tagsList.json", "utf-8");
+const tagsList = JSON.parse(jsonTagsList);
+const availableTags = tagsList.results;
+
+const jsonKeysList = fs.readFileSync("./data/keysList.json", "utf-8");
+const keysList = JSON.parse(jsonKeysList);
+const availableKeys = keysList.results;
 
 /* GET home page. */
 router.get(
@@ -27,9 +34,6 @@ router.get(
       .optional()
       .custom((value) => {
         const valueToLowerCase = value.toLowerCase();
-        const jsonTagsList = fs.readFileSync("./data/tagsList.json", "utf-8");
-        const tagsList = JSON.parse(jsonTagsList);
-        const availableTags = tagsList.results;
 
         if (availableTags.includes(valueToLowerCase)) return true;
       })
@@ -41,9 +45,6 @@ router.get(
       .optional()
       .custom((value) => {
         const valueToLowerCase = value.toLowerCase();
-        const jsonKeysList = fs.readFileSync("./data/keysList.json", "utf-8");
-        const keysList = JSON.parse(jsonKeysList);
-        const availableKeys = keysList.results;
 
         if (availableKeys.includes(valueToLowerCase)) return true;
       })
@@ -65,7 +66,14 @@ router.get(
 
   async function (req, res, next) {
     try {
-      const i18nTags = i18n.__("tags");
+      const i18nTags = {
+        mobile: "mobile",
+        work: "work",
+        lifestyle: "lifestyle",
+        motor: "motor",
+      };
+
+      //const i18nTags = i18n.__("tags");
       console.log("Esto es i18nTags", i18nTags);
       console.log("Esto es i18nTags.mobile", i18nTags.mobile);
 
