@@ -15,7 +15,7 @@ responder.on("resize-to-thumbnail", async (req, done) => {
 
     done(null, { message: "Resize successful! ", outputFilePath: outputFilePath });
   } catch (error) {
-    console.log("Error resizing thumbnail: ", error);
+    console.error("Error resizing thumbnail: ", error);
     done(error);
   }
 });

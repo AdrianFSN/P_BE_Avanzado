@@ -9,7 +9,7 @@ const sendOrderToResizeEvent = (filePath, callback) => {
   };
   requester.send(event, (error, result) => {
     if (error) {
-      console.log("Error in resize event: ", error);
+      console.error("Error in resize event: ", error);
       return callback(error);
     }
     callback(null, result);
