@@ -13,17 +13,18 @@
     <%= title %>
   </h1>
   <p>
-    Te damos la bienvenida a <b>
-      <%= title %>
-    </b>, tu tienda de segunda mano.
+    <%= __("Welcome to") %> <b>
+        <%= title %>,
+      </b>
+      <%= __("your second hand store.") %>
   </p>
   <p>
-    Artículos disponibles:
+    <%= __("Articles panel") %>
   </p>
   <p>
     <% if (adsList.length===0) {%>
-      No se ha encontrado ningún anuncio con tus criterios de búsqueda.
-      <% }%>
+      <%= __("Sorry, nothing to show for your search.") %>
+        <% }%>
   </p>
   <ul>
     <% for (let i=0; i < adsList.length; i++) { %>
@@ -33,25 +34,30 @@
             <%= ad.name %>
           </h2>
           <p>
-            Tipo de anuncio: <%= ad.sale ? 'Se vende' : 'Se busca' %>
+            <%= __("Type of offer:") %>
+              <%= ad.sale ? __("For sale") : __("Looking for") %>
           </p>
           <% if (ad.price) { %>
             <p>
-              Precio: <%= ad.price %> €
+              <%= __("Price:") %>
+                <%= ad.price %> €
             </p>
             <% } %>
               <% if (ad.tag && ad.tag.length> 0) { %>
                 <p>
-                  Categoría: <%= ad.tag.join(', ') %> 
-          </p>
+                  <%= __("Category:") %>
+                    <%= __(ad.tag.join(', ')) %> 
+
+                </p>
+
+                <% } %>
+                  <% if (ad.image) { %>
+                    <p>
+                      <img src=" /adImages/thumbnail_<%=ad.image%>">
+                    </p>
+                    <% } %>
+        </li>
         <% } %>
-        <% if (ad.image) { %>
-          <p>
-            <img src="/adImages/thumbnail_<%=ad.image%>">
-          </p>
-        <% } %>
-      </li>
-    <% } %>
   </ul>
 </body>
 

@@ -1,0 +1,23 @@
+{
+	"Welcome to": "Welcome to",
+	", your second hand store.": ", your second hand store.",
+	"Articles panel": "Articles panel",
+	"Type of offer:": "Type of offer:",
+	"Price:": "Price:",
+	"Category:": "Category:",
+	"Looking for": "Looking for",
+	"For sale": "For sale",
+	"Tags / categories": "Tags / categories",
+	"Available categories list": "Available categories list",
+	"tags": {
+		"mobile": "mobile",
+		"work": "work",
+		"lifestyle": "lifestyle",
+		"motor": "motor"
+	},
+	"your second hand store.": "your second hand store.",
+	"lifestyle": "lifestyle",
+	"work, lifestyle": "work, lifestyle",
+	"motor, lifestyle": "motor, lifestyle",
+	"work, lifestyle, mobile": "work, lifestyle, mobile"
+}

@@ -2,12 +2,16 @@
 <html>
 
 <head>
-    <title>Tags</title>
+    <title>
+        <%= __("Tags / categories") %>
+    </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
 <body>
-    <h1>Lista de tags disponibles</h1>
+    <h1>
+        <%= __("Available categories list") %>
+    </h1>
     <ul>
         <% for (let i=0; i < tags.length; i++) { %>
             <li>

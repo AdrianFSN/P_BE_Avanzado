@@ -6,9 +6,9 @@ var helmet = require("helmet");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-const basicAuth = require("./lib/basicAuthMiddleware");
 const jwtAuth = require("./lib/jwtAuthentication");
 const LoginController = require("./controllers/LoginController");
+const i18n = require("./lib/i18nConfigure");
 
 const loginController = new LoginController();
 
@@ -39,16 +39,16 @@ app.use(express.static(path.join(__dirname, "public")));
  */
 app.use("/api/adsNodepop", jwtAuth, require("./routes/api/ads"));
 app.use("/api/users", require("./routes/api/users"));
-app.post("/api/authenticate", loginController.postApiJWT);
 app.use("/api/tags", require("./routes/api/availableTags"));
 app.use("/api/insert", jwtAuth, require("./routes/api/insertOneAd"));
 app.use("/api/update", jwtAuth, require("./routes/api/updateAd"));
 app.use("/api/delete", jwtAuth, require("./routes/api/deleteAds"));
+app.post("/api/authenticate", loginController.postApiJWT);
 
 /**
  * Rutas del website
  */
-
+app.use(i18n.init);
 app.use("/", require("./routes/index"));
 app.use("/users", require("./routes/users"));
 app.use("/tags", require("./routes/tags"));

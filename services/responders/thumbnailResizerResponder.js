@@ -1,5 +1,5 @@
 const { Responder } = require("cote");
-const path = require("path");
+const path = require("node:path");
 const Jimp = require("jimp");
 
 const responder = new Responder({ name: "thumbnailResizerResponder" });

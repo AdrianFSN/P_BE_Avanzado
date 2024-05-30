@@ -1,0 +1,23 @@
+{
+	"Welcome to": "Te damos la bienvenida a",
+	", your second hand store.": ", tu tienda de segunda mano.",
+	"Articles panel": "Tablón de anuncios",
+	"Type of offer:": "Tipo de oferta:",
+	"Price:": "Precio:",
+	"Category:": "Categoría:",
+	"Looking for": "Se busca",
+	"For sale": "Se vende",
+	"Tags / categories": "Etiquetas / categorías",
+	"Available categories list": "Lista de categorías disponible",
+	"tags": {
+		"mobile": "móviles",
+		"work": "trabajo",
+		"lifestyle": "estilo de vida",
+		"motor": "motor"
+	},
+	"your second hand store.": "tu tienda de segunda mano.",
+	"lifestyle": "lifestyle",
+	"work, lifestyle": "work, lifestyle",
+	"motor, lifestyle": "motor, lifestyle",
+	"work, lifestyle, mobile": "work, lifestyle, mobile"
+}

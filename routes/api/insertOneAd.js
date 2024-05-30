@@ -5,7 +5,7 @@ var router = express.Router();
 const AdNopop = require("../../models/AdNodepop");
 const upload = require("../../lib/publicUploadConfigure");
 const sendOrderToResizeEvent = require("../../services/requesters/resizeThumbnailRequest");
-const path = require("path");
+const path = require("node:path");
 
 // POST /api/insert (body)
 // Insert a new add
