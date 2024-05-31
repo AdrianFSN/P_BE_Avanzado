@@ -7,11 +7,12 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const jwtAuth = require("./lib/jwtAuthentication");
-const { LoginController, LangController } = require("./controllers");
+const { LoginController, LangController, ImageRouteController } = require("./controllers");
 const i18n = require("./lib/i18nConfigure");
 
 const loginController = new LoginController();
 const langController = new LangController();
+const imageRouteController = new ImageRouteController();
 
 require("./lib/connectMongoose");
 
@@ -46,6 +47,7 @@ app.use("/api/update", jwtAuth, require("./routes/api/updateAd"));
 app.use("/api/delete", jwtAuth, require("./routes/api/deleteAds"));
 app.post("/api/authenticate", loginController.postApiJWT);
 app.get("/change-locale/:locale", langController.changeLocale);
+app.get("/adImages/:filename", imageRouteController.setImageRoute);
 
 /**
  * Rutas del website
