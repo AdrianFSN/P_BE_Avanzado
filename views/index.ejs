@@ -15,48 +15,43 @@
   </header>
 
   <body>
-    <h2>
-      <%= __("Articles panel") %>
-    </h2>
-    <p>
-      <% if (adsList.length===0) {%>
-        <%= __("Sorry, nothing to show for your search.") %>
-          <% }%>
-    </p>
-    <ul>
+    <div class="adsPanel-card-container">
       <% for (let i=0; i < adsList.length; i++) { %>
         <% const ad=adsList[i]; %>
-          <li>
+          <div class="adsPanel-card">
             <h2>
               <%= ad.name %>
             </h2>
-            <p>
-              <%= __("Type of offer:") %>
-                <%= ad.sale ? __("For sale") : __("Looking for") %>
-            </p>
+
+            <div class="adsPanel-badge <%= ad.sale ? 'sale' : 'search' %>">
+              <%= ad.sale ? __("Sell") : __("Buy") %>
+            </div>
+
             <% if (ad.price) { %>
               <p>
-                <%= __("Price:") %>
-                  <%= ad.price %> €
+                <strong>
+                  <%= __("Price:") %>
+                </strong>
+                <%= ad.price %> €
               </p>
               <% } %>
                 <% if (ad.tag && ad.tag.length> 0) { %>
                   <p>
-                    <%= __("Category:") %>
-                      <%= ad.tag.map(item=> tagsToLocalizeWithI18n[item] = __(item)).join(', ') %>
-
+                    <strong>
+                      <%= __("Category:") %>
+                    </strong>
+                    <%= ad.tag.map(item=> tagsToLocalizeWithI18n[item] = __(item)).join(', ') %>
                   </p>
-
                   <% } %>
                     <% if (ad.image) { %>
                       <p>
-                        <img src="/uploads/adImages/thumbnail_<%=ad.image%>">
+                        <img src="/uploads/adImages/thumbnail_<%= ad.image %>" alt="<%= ad.name %>">
                       </p>
                       <% } %>
-          </li>
+          </div>
           <% } %>
-    </ul>
-    <%- include('footer.ejs') %>
+    </div>
+    <%- include('footer') %>
   </body>
 
   </html>
