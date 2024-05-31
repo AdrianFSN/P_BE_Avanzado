@@ -16,6 +16,12 @@
 
   <body>
     <div class="adsPanel-card-container">
+      <p>
+        <% if (adsList.length===0) {%>
+          <%= __("We could not find any ad for those criterias...") %>
+            <% }%>
+      </p>
+
       <% for (let i=0; i < adsList.length; i++) { %>
         <% const ad=adsList[i]; %>
           <div class="adsPanel-card">
