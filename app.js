@@ -7,8 +7,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const jwtAuth = require("./lib/jwtAuthentication");
-const LoginController = require("./controllers/LoginController");
-const LangController = require("./controllers/LangController");
+const { LoginController, LangController } = require("./controllers");
 const i18n = require("./lib/i18nConfigure");
 
 const loginController = new LoginController();
