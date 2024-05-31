@@ -19,35 +19,38 @@
       <% for (let i=0; i < adsList.length; i++) { %>
         <% const ad=adsList[i]; %>
           <div class="adsPanel-card">
-            <h2>
-              <%= ad.name %>
-            </h2>
 
-            <div class="adsPanel-badge <%= ad.sale ? 'sale' : 'search' %>">
-              <%= ad.sale ? __("Sell") : __("Buy") %>
-            </div>
-
-            <% if (ad.price) { %>
+            <% if (ad.image) { %>
               <p>
-                <strong>
-                  <%= __("Price:") %>
-                </strong>
-                <%= ad.price %> €
+                <img src="/uploads/adImages/<%= ad.image %>" alt="<%= ad.name %>">
               </p>
               <% } %>
-                <% if (ad.tag && ad.tag.length> 0) { %>
+
+                <h2>
+                  <%= ad.name %>
+                </h2>
+
+                <div class="adsPanel-badge <%= ad.sale ? 'sale' : 'search' %>">
+                  <%= ad.sale ? __("Sell") : __("Buy") %>
+                </div>
+
+                <% if (ad.price) { %>
                   <p>
                     <strong>
-                      <%= __("Category:") %>
+                      <%= __("Price:") %>
                     </strong>
-                    <%= ad.tag.map(item=> tagsToLocalizeWithI18n[item] = __(item)).join(', ') %>
+                    <%= ad.price %> €
                   </p>
                   <% } %>
-                    <% if (ad.image) { %>
+                    <% if (ad.tag && ad.tag.length> 0) { %>
                       <p>
-                        <img src="/uploads/adImages/thumbnail_<%= ad.image %>" alt="<%= ad.name %>">
+                        <strong>
+                          <%= __("Category:") %>
+                        </strong>
+                        <%= ad.tag.map(item=> tagsToLocalizeWithI18n[item] = __(item)).join(', ') %>
                       </p>
                       <% } %>
+
           </div>
           <% } %>
     </div>
