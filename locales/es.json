@@ -1,7 +1,5 @@
 {
-  "Welcome to": "Te damos la bienvenida a",
-  ", your second hand store.": ", tu tienda de segunda mano.",
-  "Articles panel": "Tablón de anuncios",
+  "Articles panel": "Ofertas disponibles",
   "Type of offer:": "Tipo de oferta:",
   "Price:": "Precio:",
   "Category:": "Categoría:",
@@ -9,9 +7,20 @@
   "For sale": "Se vende",
   "Tags / categories": "Etiquetas / categorías",
   "Available categories list": "Lista de categorías disponible",
-  "your second hand store.": "tu tienda de segunda mano.",
+  "your second hand store.": "Tu tienda de segunda mano",
   "lifestyle": "estilo de vida",
   "work": "trabajo",
   "motor": "motor",
-  "mobile": "móviles"
+  "mobile": "móviles",
+  "Cart": "Carrito",
+  "Nodepop": "Nodepop",
+  "About": "Sobre nosotros",
+  "Shop": "Tienda",
+  "All Products": "Todo",
+  "Popular Items": "Populares",
+  "New Arrivals": "Novedades",
+  "Home": "Home",
+  "Copyright": "Todos los derechos reservados",
+  "Your second hand store": "Tu tienda de segunda mano",
+  "Your Website 2024": "Nodepop 2024"
 }

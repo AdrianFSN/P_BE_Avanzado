@@ -1,64 +1,62 @@
-<!DOCTYPE html>
-<html>
+<%- include('header.ejs') %>
 
-<head>
-  <title>
-    <%= title %>
-  </title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
+  <!-- Header-->
+  <header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+      <div class="text-center text-white">
+        <h1 class="display-4 fw-bolder">
+          <%= title %>
+        </h1>
+        <p class="lead fw-normal text-white-50 mb-0">
+          <%= __("Your second hand store") %>
+        </p>
+      </div>
+    </div>
+  </header>
 
-<body>
-  <h1>
-    <%= title %>
-  </h1>
-  <p>
-    <%= __("Welcome to") %> <b>
-        <%= title %>,
-      </b>
-      <%= __("your second hand store.") %>
-  </p>
-  <p>
-    <%= __("Articles panel") %>
-  </p>
-  <p>
-    <% if (adsList.length===0) {%>
-      <%= __("Sorry, nothing to show for your search.") %>
-        <% }%>
-  </p>
-  <ul>
-    <% for (let i=0; i < adsList.length; i++) { %>
-      <% const ad=adsList[i]; %>
-        <li>
-          <h2>
-            <%= ad.name %>
-          </h2>
-          <p>
-            <%= __("Type of offer:") %>
-              <%= ad.sale ? __("For sale") : __("Looking for") %>
-          </p>
-          <% if (ad.price) { %>
+  <body>
+    <h2>
+      <%= __("Articles panel") %>
+    </h2>
+    <p>
+      <% if (adsList.length===0) {%>
+        <%= __("Sorry, nothing to show for your search.") %>
+          <% }%>
+    </p>
+    <ul>
+      <% for (let i=0; i < adsList.length; i++) { %>
+        <% const ad=adsList[i]; %>
+          <li>
+            <h2>
+              <%= ad.name %>
+            </h2>
             <p>
-              <%= __("Price:") %>
-                <%= ad.price %> €
+              <%= __("Type of offer:") %>
+                <%= ad.sale ? __("For sale") : __("Looking for") %>
             </p>
-            <% } %>
-              <% if (ad.tag && ad.tag.length> 0) { %>
-                <p>
-                  <%= __("Category:") %>
-                    <%= ad.tag.map(item=> tagsToLocalizeWithI18n[item] = __(item)).join(', ') %>
+            <% if (ad.price) { %>
+              <p>
+                <%= __("Price:") %>
+                  <%= ad.price %> €
+              </p>
+              <% } %>
+                <% if (ad.tag && ad.tag.length> 0) { %>
+                  <p>
+                    <%= __("Category:") %>
+                      <%= ad.tag.map(item=> tagsToLocalizeWithI18n[item] = __(item)).join(', ') %>
 
-                </p>
+                  </p>
 
-                <% } %>
-                  <% if (ad.image) { %>
-                    <p>
-                      <img src=" /adImages/thumbnail_<%=ad.image%>">
-                    </p>
-                    <% } %>
-        </li>
-        <% } %>
-  </ul>
-</body>
+                  <% } %>
+                    <% if (ad.image) { %>
+                      <p>
+                        <img src=" /adImages/thumbnail_<%=ad.image%>">
+                      </p>
+                      <% } %>
+          </li>
+          <% } %>
+    </ul>
+    <%- include('footer.ejs') %>
+  </body>
 
-</html>
+  </html>
