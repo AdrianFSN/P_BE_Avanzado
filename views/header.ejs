@@ -52,14 +52,7 @@
                                 </a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <% getLocales().forEach(locale=> { %>
-                            <a href="/change-locale/<%= locale %>">
-                                <%= locale %>
-                            </a>
-                            <% }) %>
 
-                    </li>
                 </ul>
                 <form class="d-flex">
                     <button class="btn btn-outline-dark" type="submit">
@@ -68,6 +61,17 @@
                             <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                     </button>
                 </form>
+            </div>
+            <div>
+                <li class="nav-lang">
+                    <%= __("Language: ") %>
+                    <% getLocales().forEach(locale=> { %>
+                        <a href=" /change-locale/<%=locale %>">
+                        <%= locale %>
+                            </a>
+                            <% }) %>
+
+                </li>
             </div>
         </div>
     </nav>

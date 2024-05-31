@@ -3721,6 +3721,17 @@ fieldset:disabled .btn {
   list-style: none;
 }
 
+.nav-lang {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding-left: 20px;
+}
+
+.nav-lang a {
+  color: black;
+}
+
 .nav-link {
   display: block;
   padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
