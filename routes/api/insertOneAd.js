@@ -3,7 +3,7 @@
 var express = require("express");
 var router = express.Router();
 const AdNopop = require("../../models/AdNodepop");
-const upload = require("../../lib/publicUploadConfigure");
+const upload = require("../../lib/uploadConfigure");
 const sendOrderToResizeEvent = require("../../services/requesters/resizeThumbnailRequest");
 const path = require("node:path");
 
@@ -20,7 +20,7 @@ router.post("/", upload.single("image"), async (req, res, next) => {
 
     if (req.file) {
       newAd.image = req.file.filename;
-      filePath = path.join(__dirname, "../../public/adImages", newAd.image);
+      filePath = path.join(__dirname, "../../uploads/adImages", newAd.image);
     }
 
     // Then persist (save) in the DB

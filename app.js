@@ -34,7 +34,12 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+/**
+ * Static paths
+ */
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 /**
  * Rutas del API
@@ -46,8 +51,6 @@ app.use("/api/insert", jwtAuth, require("./routes/api/insertOneAd"));
 app.use("/api/update", jwtAuth, require("./routes/api/updateAd"));
 app.use("/api/delete", jwtAuth, require("./routes/api/deleteAds"));
 app.post("/api/authenticate", loginController.postApiJWT);
-app.get("/change-locale/:locale", langController.changeLocale);
-app.get("/adImages/:filename", imageRouteController.setImageRoute);
 
 /**
  * Rutas del website
@@ -56,6 +59,8 @@ app.use(i18n.init);
 app.use("/", require("./routes/index"));
 app.use("/users", require("./routes/users"));
 app.use("/tags", require("./routes/tags"));
+app.get("/change-locale/:locale", langController.changeLocale);
+app.get("/adImages/:filename", imageRouteController.setImageRoute);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
