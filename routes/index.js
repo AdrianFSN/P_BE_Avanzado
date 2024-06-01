@@ -22,9 +22,9 @@ router.get(
     query("sale")
       .optional()
       .custom((value) => {
-        const valueToBoolean = Boolean(value);
+        const lowerCaseValue = value.toLowerCase();
 
-        if (valueToBoolean === true || valueToBoolean === false) {
+        if (lowerCaseValue === "true" || lowerCaseValue === "false") {
           return true;
         }
       })
@@ -104,6 +104,8 @@ router.get(
       }
 
       const adsList = await AdNopop.listCriterias(filter, skip, limit, sort, fields);
+
+      res.locals.panelTitle = res.__("This is all for you!");
 
       res.render("index", { title: "Nodepop", adsList, tagsToLocalizeWithI18n });
     } catch (error) {

@@ -1,10 +1,9 @@
 {
+	"422": 422,
 	"Articles panel": "Articles panel",
 	"Type of offer:": "Type of offer:",
 	"Price:": "Price:",
 	"Category:": "Category:",
-	"Looking for": "Looking for",
-	"For sale": "For sale",
 	"Tags / categories": "Tags / categories",
 	"Available categories list": "Available categories list",
 	"lifestyle": "lifestyle",
@@ -26,5 +25,13 @@
 	"Language: ": "Language: ",
 	"Sell": "Sell",
 	"Buy": "Buy",
-	"We could not find any ad for those criterias...": "We could not find any ad for those criterias..."
+	"We could not find any ad for those criterias...": "We could not find any ad for those criterias...",
+	"This is all for you!": "This is all for you!",
+	"Not valid - field query in name: At least one character is needed to search by name": "Not valid - field query in name: At least one character is needed to search by name",
+	"An error occurred!": "An error occurred!",
+	"You got an error with status: ": "You got an error with status: ",
+	"Details of the issue:": "Details of the issue:",
+	"Not valid - field query in price: Price can not be empty and should be a number": "Not valid - field query in price: Price can not be empty and should be a number",
+	"Not valid - field query in sale: On sale can only be \"true\" or \"false\"": "Not valid - field query in sale: On sale can only be \"true\" or \"false\"",
+	"Not valid - field query in tag: Tag can only be \"Lifestyle\", \"Mobile\", \"Motor\" or \"Work\"": "Not valid - field query in tag: Tag can only be \"Lifestyle\", \"Mobile\", \"Motor\" or \"Work\""
 }
