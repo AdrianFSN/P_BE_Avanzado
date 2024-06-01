@@ -15,9 +15,9 @@ router.get(
     query("sale")
       .optional()
       .custom((value) => {
-        const valueToBoolean = Boolean(value);
+        const lowerCaseValue = value.toLowerCase();
 
-        if (valueToBoolean === true || valueToBoolean === false) {
+        if (lowerCaseValue === "true" || lowerCaseValue === "false") {
           return true;
         }
       })
