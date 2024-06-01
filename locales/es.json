@@ -1,4 +1,5 @@
 {
+  "404": 404,
   "422": 422,
   "Articles panel": "Ofertas disponibles",
   "Type of offer:": "Tipo de oferta:",
@@ -35,5 +36,10 @@
   "Details of the issue:": " Detalle del problema:",
   "Not valid - field query in price: Price can not be empty and should be a number": "Petición no válida - consulta de campo usando \"price\": para buscar por precio, el campo \"price\" no puede estar vacío y tiene que ser un número",
   "Not valid - field query in sale: On sale can only be \"true\" or \"false\"": "Petición no válida - consulta de campo usando \"sale\": para buscar por tipo de oferta, el campo \"sale\" no puede estar vacío y solo puede ser \"true\", para anuncios de ventas, o \"false\", para anuncios de búsquedas",
-  "Not valid - field query in tag: Tag can only be \"Lifestyle\", \"Mobile\", \"Motor\" or \"Work\"": "Petición no válida - consulta de campo usando \"tag\": para buscar por categoría, \"tag\" solo puedes utilizar \"Lifestyle\", \"Mobile\", \"Motor\" o \"Work\""
+  "Not valid - field query in tag: Tag can only be \"Lifestyle\", \"Mobile\", \"Motor\" or \"Work\"": "Petición no válida - consulta de campo usando \"tag\": para buscar por categoría usando \"tag\", solo puedes utilizar \"Lifestyle\", \"Mobile\", \"Motor\" o \"Work\"",
+  "Not valid - field query in sort: You can only sort by \"name\", \"sale\", \"price\" or \"tag\"": "Petición no válida - consulta de campo usando \"sort\": para ordenar tus búsquedas usando  \"sort\", solo puedes utilizar \"name\", \"sale\", \"price\" or \"tag\"",
+  "Not valid - field query in fields: You can only filter by \"name\", \"sale\", \"price\" or \"tag\"": "Petición no válida - consulta de campo usando \"fields\": para filtrar tus búsquedas usando  \"fields\", solo puedes utilizar \"name\", \"sale\", \"price\" or \"tag\"",
+  "Not Found": "Página no encontrada",
+  "Not valid - field query in skip: Skip can not be empty and should be a number": "Petición no válida - consulta de campo usando\"skip\": para paginar tus búsquedas, \"skip\" tiene que ser un número",
+  "Not valid - field query in limit: Limit can not be empty and should be a number": "Petición no válida - consulta de campo usando\"limit\": para paginar tus búsquedas, \"limit\" tiene que ser un número"
 }

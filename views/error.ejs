@@ -1,23 +1,19 @@
 <%- include('header.ejs') %>
 
-    <h1>
-        <%= __("An error occurred!") %>
-    </h1>
-    <div>
-        <p>
-            <%= __(message) %>
-
-        </p>
-
-    </div>
-    <div>
-        <p>
-            <%= __("Details of the issue:") %>
-        </p>
-        <p>
-            <%= __("You got an error with status: ") %> <%= __(error.status) %>
-  
-
+    <div class="errorsPage-container">
+        <h1>
+            <%= __("An error occurred!") %>
+        </h1>
+        <div class="errorsPage-message">
+            <p>
+                <%= __(message) %>
             </p>
-
-            </div>
+        </div>
+        <div class="errorsPage-details">
+            <p>
+                <%= __("Details of the issue:") %>
+            </p>
+            <p>
+                <%= __("You got an error with status: ") %> <%= __(error.status) %></p>
+        </div>
+    </div>

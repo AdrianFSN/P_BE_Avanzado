@@ -1,4 +1,5 @@
 {
+	"404": 404,
 	"422": 422,
 	"Articles panel": "Articles panel",
 	"Type of offer:": "Type of offer:",
@@ -33,5 +34,10 @@
 	"Details of the issue:": "Details of the issue:",
 	"Not valid - field query in price: Price can not be empty and should be a number": "Not valid - field query in price: Price can not be empty and should be a number",
 	"Not valid - field query in sale: On sale can only be \"true\" or \"false\"": "Not valid - field query in sale: On sale can only be \"true\" or \"false\"",
-	"Not valid - field query in tag: Tag can only be \"Lifestyle\", \"Mobile\", \"Motor\" or \"Work\"": "Not valid - field query in tag: Tag can only be \"Lifestyle\", \"Mobile\", \"Motor\" or \"Work\""
+	"Not valid - field query in tag: Tag can only be \"Lifestyle\", \"Mobile\", \"Motor\" or \"Work\"": "Not valid - field query in tag: Tag can only be \"Lifestyle\", \"Mobile\", \"Motor\" or \"Work\"",
+	"Not valid - field query in sort: You can only sort by \"name\", \"sale\", \"price\" or \"tag\"": "Not valid - field query in sort: You can only sort by \"name\", \"sale\", \"price\" or \"tag\"",
+	"Not valid - field query in fields: You can only filter by \"name\", \"sale\", \"price\" or \"tag\"": "Not valid - field query in fields: You can only filter by \"name\", \"sale\", \"price\" or \"tag\"",
+	"Not Found": "Not Found",
+	"Not valid - field query in skip: Skip can not be empty and should be a number": "Not valid - field query in skip: Skip can not be empty and should be a number",
+	"Not valid - field query in limit: Limit can not be empty and should be a number": "Not valid - field query in limit: Limit can not be empty and should be a number"
 }
