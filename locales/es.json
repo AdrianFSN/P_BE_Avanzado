@@ -30,7 +30,7 @@
   "Buy": "Compro",
   "We could not find any ad for those criterias...": "No hemos encontrado ningún anuncio...",
   "This is all for you!": "¡Todo esto es para ti!",
-  "Not valid - field query in name: At least one character is needed to search by name": "Petición no válida - consulta de campo usando \"name\": se necesita al menos un caracter para buscar por nombre",
+  "Not valid - field query in name: At least one character is needed to search by name": "Petición no válida - consulta de campo usando \"name\": se necesita al menos un carácter para buscar por nombre",
   "An error occurred!": "¡Ha ocurrido un error!",
   "You got an error with status: ": "Has recibido un error de tipo:",
   "Details of the issue:": " Detalle del problema:",

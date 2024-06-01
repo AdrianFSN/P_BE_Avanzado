@@ -99,6 +99,26 @@
       "tag": ["work", "mobile", "lifestyle"],
       "image": "image-1717151246182-sandwich.jpg",
       "__v": 0
+    },
+    {
+      "_id": "665b2b084bdb21dceb7c4049",
+      "name": "Van",
+      "sale": true,
+      "price": 6250,
+      "owner": "6659a6c60e7792d03181cb84",
+      "tag": ["motor", "lifestyle", "work"],
+      "image": "image-1717250824232-van.jpg",
+      "__v": 0
+    },
+    {
+      "_id": "665b2c114bdb21dceb7c404c",
+      "name": "Bicycle",
+      "sale": false,
+      "price": 175,
+      "owner": "6659a6c60e7792d03181cb84",
+      "tag": ["motor", "lifestyle", "work"],
+      "image": "image-1717251089134-bicycle.jpg",
+      "__v": 0
     }
   ],
 
