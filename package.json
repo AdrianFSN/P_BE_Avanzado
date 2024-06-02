@@ -5,7 +5,8 @@
   "scripts": {
     "start": "cross-env NODEPOP_ENV=production node ./bin/www",
     "dev": "cross-env NODEPOP_ENV=development DEBUG=nodepop:* nodemon ./bin/www ",
-    "init-db": "node init-db.js"
+    "init-db": "node init-db.js",
+    "thumb-res": "npx nodemon ./services/responders/thumbnailResizerResponder.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",

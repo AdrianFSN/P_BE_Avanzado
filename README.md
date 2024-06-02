@@ -442,10 +442,10 @@ The requester will go live with the app, after running:
 npm run dev
 ```
 
-However, you will need to execute the responder after navigating to its container folder. For example, running:
+However, you will need to execute the responder by openning a second terminal and running:
 
 ```sh
-npx nodemon thumbnailResizerResponder.js
+npm run thumb-res
 ```
 
 #### Using jimp to resize images
