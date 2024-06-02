@@ -380,7 +380,7 @@ Mentioned task creates a thumbnail of the image (see below for more info).
 
 #### DELETE (JWT protected)
 
-Find first the ID of the ad you want to delete (from /api/adsNodepop, for example). Then use this method to remove it from the data base.
+Find first the ID of the ad you want to delete (from /api/adsNodepop, for example). Then use this method to remove it from the data base. Image and thumbnail will also be deleted.
 
 DELETE /api/delete/<\_id> (body)
 
