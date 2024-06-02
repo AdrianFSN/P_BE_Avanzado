@@ -377,9 +377,8 @@ DELETE /api/delete/<\_id> (body)
 
 Result:
 
-```json
+```
 Empty (check status 200 OK in Postman)
-
 ```
 
 ## Validations
@@ -414,7 +413,7 @@ This view is controlled by the file index.js. It shows the root page of the web,
 
 Once you navigate to that URL, you can execute all the READ methods of the API explained above, WITH NO NEED TO AUTHENTICATE.
 
-<img src="RM-image-1.png" alt="Example Image" width="400">
+<img src="/readme-images/RM-image-1.png" alt="Example Image" width="400">
 
 ### Tags.ejs
 
