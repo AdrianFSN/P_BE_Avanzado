@@ -477,12 +477,12 @@ Nodepop store is now published in 2 languages: English and Spanish.
 
 You can use the language selector on the top right corner of your screen to switch from one to another:
 
-<img src="RM-image.png" alt="alt text" width="200">
+<img src="/readme-images/RM-image.png" alt="alt text" width="200">
 
 Localization feature is driven by [i18next](https://github.com/i18next/i18next) library. You can find the translation files under the folder "locales".
 
 Example in English:
-<img src="RM-image-3.png" alt="alt text" width="300">
+<img src="/readme-images/RM-image-3.png" alt="alt text" width="300">
 
 Example in Spanish:
-<img src="RM-image-4.png" alt="alt text" width="300">
+<img src="/readme-images/RM-image-4.png" alt="alt text" width="300">
