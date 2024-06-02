@@ -1,9 +1,10 @@
 # Nodepop
-## practicaFund_Node_Mongo
-The task requests to build an API to serve advertisements. This content would be used in applications aimed to sell/buy second hand items.
+
+## P_BE_Avanzado
+
+This task request to improve the API we built some months ago for Nodepop, a second hand store. The basics are the same, but some new features have been added and documented accordingly.
 
 Our data base is set in Mongo DB and we are going to use Nodejs to build our asset:
-
 
 Install dependencies.
 
@@ -24,60 +25,77 @@ Set environment variables under package.json > scripts:
     "start": "cross-env NODEPOP_ENV=production node ./bin/www",
     "dev": "cross-env NODEPOP_ENV=development DEBUG=nodepop:* nodemon ./bin/www"
   }
-  ```
-  Hence run app in dev mode (port 3000) by:
+```
 
-  ```sh
-  npm run dev
-  ```
+Hence run app in dev mode (port 3000) by:
 
-  Install Mongoose to make Mongo schemas:
+```sh
+npm run dev
+```
 
-  ```sh
-  npm install mongoose
-  ```
+Install Mongoose to make Mongo schemas:
+
+```sh
+npm install mongoose
+```
+
 Check dependencies for the rest of installs needed.
 
-  ## API
-  ## Initializing the Data Base
-  The data base can be preloaded with 21 ads before starting to use it and test it.
-  
-  This list of ads is in a JSON file under the folder "data", with name "adsList.json". So it is easy to modify if needed.
+## API
+
+## Initializing the Data Base
+
+The data base can be preloaded with 12 ads before starting to use it and test it. And new to the first version, there is also a mock up with a list of 6 users to populate the data base's users.
+
+Both lists are JSON file under the folder "data", with name "data.json". So it is easy to modify if needed.
 
 Example:
 
-  ```json
-
-[
-     {
-        "name": "Samsung Galaxy F4",
-        "sale": true,
-        "price": 600,
-        "picture": "mobile.jpg",
-        "tag": [
-            "mobile",
-            "work"
-        ]
+```json
+{
+  "ads": [
+    {
+      "_id": "66599fff71cf00bbe5b5c54f",
+      "name": "Fancy Cabrio Car",
+      "sale": true,
+      "price": 17800,
+      "owner": "665762f03ebdac6771ecdd56",
+      "tag": ["motor", "lifestyle"],
+      "image": "image-1717149695054-cabrio_car.jpg",
+      "__v": 0
     },
     {
-        "name": "Motorola Moto G23",
-        "sale": true,
-        "price": 130,
-        "picture": "mobile.jpg",
-        "tag": [
-            "mobile",
-            "work"
-        ]
+      "_id": "6659a05871cf00bbe5b5c552",
+      "name": "Old Typewriter",
+      "sale": true,
+      "price": 23,
+      "owner": "665762f03ebdac6771ecdd56",
+      "tag": ["work"],
+      "image": "image-1717149784023-typewriter.jpg",
+      "__v": 0
     }
-]
+  ],
 
-  ```
-  
-  This file is managed by init-db.js to reset/restart the Data Base. Please, follow the instructions below to start it:
+  "users": [
+    {
+      "nickname": "TheBoss",
+      "email": "admin@example.com",
+      "password": "1234"
+    },
+    {
+      "nickname": "Angela",
+      "email": "user@example.com",
+      "password": "1234"
+    }
+  ]
+}
+```
 
-  ### Initialize the Data Base:
+This file is managed by init-db.js to reset/restart the Data Base. Please, follow the instructions below to start it:
 
-  The file "init-db.js" deletes the ads already in the Data Base and loads the 21 ads available in "adsList.json".
+### Initialize the Data Base:
+
+The file "init-db.js" deletes the ads and users already in the Data Base and loads the 12 ads and 6 users available in "data.json".
 
 **WARNING: the next command deletes the whole database!!!**
 
@@ -89,10 +107,49 @@ Answer 'yes' if you are sure of what you are doing.
 
 ### API routes and queries (CRUD)
 
-  The access to the API is protected with user/password authentication for POST, PUT and DELETE queries.
+#### JWT Authentication (NEW!)
 
-  #### CREATE method (authentication needed)
-You can use Postman to test this method. It allows to insert a single ad to the Data Base.
+Most of the features available when using the API routes are protected by Json Web Token to sign your authentication.
+
+You will need to create and set your personal JWT_SECRET variable in a .env file:
+
+```json
+JWT_SECRET=YOUR PASSWORD HERE
+```
+
+Please, use a development tool for testing APIs like Postman to test the following methods.
+
+#### Login method
+
+POST /api/authenticate
+
+Get the email and password of one of the mocked up users in data.json and get your token.
+
+##### JWT session token
+
+After login, you get a token that currently expires after 2 hours. You can modify this deadline in the file "LoginController.js", under the folder "controllers", changing this part:
+
+```json
+const tokenJWT = await jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+        expiresIn: "2h",
+      });
+```
+
+Then you can send it in your requests using JWT Bearer format in "headers" and "query":
+
+```
+Headers:
+Authorization: Bearer <your token>
+```
+
+```
+Query Params:
+jwt: <your token>
+```
+
+#### CREATE method (JWT protected)
+
+This method allows to insert a single ad to the Data Base.
 
 POST /api/insert
 
@@ -100,90 +157,170 @@ Result after insertion:
 
 ```json
 {
-    "result": {
-        "name": "Nikon 3100",
-        "onSale": false,
-        "price": 75,
-        "picture": "/ddd.png",
-        "tag": [
-            "lifestyle"
-        ],
-        "_id": "65ddb5c0c405c54ba9c3e9fb",
-        "__v": 0
-    }
+  "result": {
+    "name": "plane",
+    "sale": false,
+    "price": 175,
+    "owner": "665b4bd7fd70b726f460e699",
+    "tag": ["motor", "lifestyle", "work"],
+    "_id": "665c3ca2305a7d4f5797a566",
+    "image": "image-1717320866754-plane.jpg",
+    "__v": 0
+  }
 }
 ```
 
-  #### READ methods: the Ads List:
+**What's new for this feature?**
+
+- Ads have now an owner, the one who created the ad.
+- This method requests now to upload an image file for each article.
+- This method sends a request for a queued task to a microservice.
+- Mentioned task creates a thumbnail of the image (see below for more info).
+
+#### READ methods: the Ads List (JWT protected):
+
 Use this method to return the whole list of ads and filter it. You can use your browser to do so.
 
-  GET /api/adsNodepop
-  Returns the whole list of ads.
+```
+GET /api/adsNodepop OR /api/adsNodepop?jwt=<your token>
+Returns the whole list of ads.
+```
 
 Example of result:
 
-  ```json
+```json
 {
-"results": [
-{
-"_id": "65ddaa5ce0297868048c7797",
-"name": "IPhone 13",
-"sale": true,
-"price": 600,
-"picture": "/mobile.jpg",
-"tag": [
-"mobile",
-"work"
-],
-"__v": 0
-}
-]
+  "results": [
+    {
+      "_id": "66599fff71cf00bbe5b5c54f",
+      "name": "Fancy Cabrio Car",
+      "sale": true,
+      "price": 17800,
+      "owner": "665c3cf0ead2e3202ec3b816",
+      "image": "image-1717149695054-cabrio_car.jpg",
+      "tag": ["motor", "lifestyle"],
+      "__v": 0
+    }
+  ]
 }
 ```
 
 This query can be filtered by name, sale, price and tag. Build your routes like this to retrieve the results you need:
 
-```
 Filtering by name:
-http://127.0.0.1:3000/api/adsNodepop?name=IPhone 13
+
+```
+JWT Bearer in headers:
+http://localhost:3000/api/adsNodepop?name=Fancy&Cabrio&Car
+
+Or jwt in query params:
+ http://localhost:3000/api/adsNodepop/?name=fancy&Cabrio&Car&jwt=<your token here>
+```
 
 Filtering by name (just write the initial character(s)):
-http://127.0.0.1:3000/api/adsNodepop?name=i
+
+```
+JWT Bearer in headers:
+http://localhost:3000/api/adsNodepop?name=f
+
+Or use the jwt=<your token> format
+
+http://localhost:3000/api/adsNodepop?name=f&jwt=<your token here>
+```
 
 Filtering by type of sale (true: sells and false: buys):
-http://127.0.0.1:3000/api/adsNodepop?sale=true
 
-http://127.0.0.1:3000/api/adsNodepop?sale=false
+```
+JWT Bearer in headers:
+http://localhost:3000/api/adsNodepop?sale=true
+
+http://localhost:3000/api/adsNodepop?sale=false
+
+Or use the jwt=<your token> format
+```
 
 Filtering by price:
-http://127.0.0.1:3000/api/adsNodepop?price=100
+
+```
+JWT Bearer in headers:
+http://localhost:3000/api/adsNodepop?price=100
+
+Or use the jwt=<your token> format
+```
 
 Filtering by tag:
-http://127.0.0.1:3000/api/adsNodepop?tag=work
+
 ```
+JWT Bearer in headers:
+http://localhost:3000/api/adsNodepop?tag=work
+
+Or use the jwt=<your token> format
+```
+
 You can also sort your queries by the same criterias:
 
 ```
-Ascending 
-http://127.0.0.1:3000/api/adsNodepop?sort=price
+JWT Bearer in headers:
+Ascending
+http://localhost:3000/api/adsNodepop?sort=price
 
 Descending:
-http://127.0.0.1:3000/api/adsNodepop?sort=-price
+http://localhost:3000/api/adsNodepop?sort=-price
+
+Or use the jwt=<your token here> format
 ```
+
 And combine filters:
 
 ```
 Combo name and sort:
-http://127.0.0.1:3000/api/adsNodepop?name=c&sort=-price
+JWT Bearer in headers:
+http://localhost:3000/api/adsNodepop?name=c&sort=-price
+
+Or use the jwt=<your token here> format
 ```
 
 And then you can also filter by fields:
 
 ```
-http://127.0.0.1:3000/api/adsNodepop?fields=name
+JWT Bearer in headers:
+http://localhost:3000/api/adsNodepop?fields=name
+
+Or use the jwt=<your token here> format
 ```
-##### Tags route
-As requested, there is one READ method to access to the list of allowed tags in the Data Base.
+
+#### Users route (JWT protected)
+
+GET /api/users
+
+Let's say you are a customer support agent of Nodepop store. You can check the mock up of the users list in DB. Passwords are encrypted.
+
+Example of result:
+
+```json
+{
+  "results": [
+    {
+      "_id": "665b4bd7fd70b726f460e699",
+      "nickname": "TheBoss",
+      "email": "admin@example.com",
+      "password": "$2b$10$l0qKZkUblsMKTtR.Kjzq5.3e0i/MjrazPfBZ8/lzKLCvoMaQq9hhu",
+      "__v": 0
+    },
+    {
+      "_id": "665b4bd7fd70b726f460e69a",
+      "nickname": "Angela",
+      "email": "user@example.com",
+      "password": "$2b$10$QLYY2Ux1mBXnP9YkKUNJyOIEH4FmPH98qKAQxQBVDia1nDnRBrhkW",
+      "__v": 0
+    }
+  ]
+}
+```
+
+##### Tags route (not protected)
+
+There is one READ method to access to the list of allowed tags in the Data Base.
 
 It is controlled by the file availableTags.js.
 
@@ -192,58 +329,59 @@ You can call this method under the following route (returns a JSON):
 GET /api/tags
 
 Result:
+
 ```json
 {
-"results": {
-"results": [
-"lifestyle",
-"mobile",
-"motor",
-"work"
-]
-}
+  "results": {
+    "results": ["lifestyle", "mobile", "motor", "work"]
+  }
 }
 ```
 
-#### UPDATE (authentication needed)
+#### UPDATE (JWT protected)
+
 You can use this method to modify the values of an existing ad. You can test it in Postman if needed. Find first the ID of the ad you want to update (from /api/adsNodepop, for example), then execute this method.
 
-PUT /api/update/<_id> (body)
+PUT /api/update/<\_id> (body)
 
 Result:
 
 Returns a JSON with the keys of the ad modified.
+
 ```json
 {
-    "result": {
-        "_id": "65ddaa80e0297868048c7799",
-        "name": "Samsung Galaxy Flip 4",
-        "sale": true,
-        "price": 500,
-        "picture": "/ccc.png",
-        "tag": [
-            "mobile",
-            "work"
-        ],
-        "__v": 0
-    }
+  "result": {
+    "_id": "665b2c114bdb21dceb7c404c",
+    "name": "Bicycle",
+    "sale": false,
+    "price": 7,
+    "owner": "665b2d29eff350d70b8834a7",
+    "image": "image-1717259125490-NoImageAvailable.jpg",
+    "tag": ["lifestyle"],
+    "__v": 0
+  }
 }
 ```
 
+This method sends a request for a queued task to a microservice.
 
+Mentioned task creates a thumbnail of the image (see below for more info).
 
-#### DELETE (authentication needed)
-Find first the ID of the ad you want to delete (from /api/adsNodepop, for example). Then use this method to remove it from the data base. 
+#### DELETE (JWT protected)
 
-DELETE /api/delete/<_id> (body)
+Find first the ID of the ad you want to delete (from /api/adsNodepop, for example). Then use this method to remove it from the data base.
+
+DELETE /api/delete/<\_id> (body)
 
 Result:
+
 ```json
 Empty (check status 200 OK in Postman)
 
 ```
 
 ## Validations
+
 There are validators added for main DB queries and for the schema of the model made for ads.
 
 Queries based in lists, like "tags" or "fields" are based on the JSON documents under "data" folder (keysList.json and tagsList.json).
@@ -265,27 +403,15 @@ query('tag').optional().custom(value => {
 ```
 
 ## Views
+
 There are two views ready to use. They are done by ejs templates.
 
 ### Index.ejs
-This view is controlled by the file index.js. It shows the root page of the web, under the route http://127.0.0.1:3000/
 
-Once you navigate to that URL, you can execute all the READ methods of the API explained above.
+This view is controlled by the file index.js. It shows the root page of the web, under the route http://localhost:3000/
+
+Once you navigate to that URL, you can execute all the READ methods of the API explained above, WITH NO NEED TO AUTHENTICATE.
 
 ### Tags.ejs
-This view is controlled by tags.js. It shows a list of available tags used in the Data Base. You can check it here: http://127.0.0.1:3000/tags
 
-## Models and modules
-### Adnodepop
-The schema to create ads is under AdNodepop file in the folder models. It is also the key module to serve the main controllers to run queries for the API and for the frontend.
-
-### RetrieveTags
-A bit of context: as you can see, the controllers ads.js (for the API) and index.js (for the frontend) do the same: they show the main list of available ads. The first one sends a JSON view and the second one renders a HTML view.
-
-In order to avoid this duplication, I started to build some classes in charge of receive the info sent by Adnodepop schema and serve it to the controllers. Then ads.js would "jsonize" it and index.js would render it.
-
-### Now yes, RetrieveTags
-To test the type of class explained above, I made the module RetrieveTags.js under models folder. Hence you can see that the controllers tags.js and availableTags.js just have to render or "jsonize" what they get from their instances of RetrieveTags.
-
-### Next built
-Trying to do a similar class to serve the ads list methods for ads.js and index.js is on works. There is a first version, which looks good, but I could not add the validations on time for the deadline of the practice.
+This view is controlled by tags.js. It shows a list of available tags used in the Data Base. You can check it here: http://localhost:3000/tags
