@@ -11,7 +11,7 @@ responder.on("resize-to-thumbnail", async (req, done) => {
     const image = await Jimp.read(filePath);
     const outputFilePath = path.join(path.dirname(filePath), "thumbnail_" + path.basename(filePath));
 
-    await image.resize(100, 100).writeAsync(outputFilePath);
+    await image.cover(100, 100).writeAsync(outputFilePath);
 
     done(null, { message: "Resize successful! ", outputFilePath: outputFilePath });
   } catch (error) {

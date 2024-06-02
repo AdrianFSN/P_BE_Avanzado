@@ -45,7 +45,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
  * Rutas del API
  */
 app.use("/api/adsNodepop", jwtAuth, require("./routes/api/ads"));
-app.use("/api/users", require("./routes/api/users"));
+app.use("/api/users", jwtAuth, require("./routes/api/users"));
 app.use("/api/tags", require("./routes/api/availableTags"));
 app.use("/api/insert", jwtAuth, require("./routes/api/insertOneAd"));
 app.use("/api/update", jwtAuth, require("./routes/api/updateAd"));

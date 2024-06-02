@@ -39,5 +39,6 @@
 	"Not valid - field query in fields: You can only filter by \"name\", \"sale\", \"price\" or \"tag\"": "Not valid - field query in fields: You can only filter by \"name\", \"sale\", \"price\" or \"tag\"",
 	"Not Found": "Not Found",
 	"Not valid - field query in skip: Skip can not be empty and should be a number": "Not valid - field query in skip: Skip can not be empty and should be a number",
-	"Not valid - field query in limit: Limit can not be empty and should be a number": "Not valid - field query in limit: Limit can not be empty and should be a number"
+	"Not valid - field query in limit: Limit can not be empty and should be a number": "Not valid - field query in limit: Limit can not be empty and should be a number",
+	"path is not defined": "path is not defined"
 }
