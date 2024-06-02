@@ -413,7 +413,8 @@ This view is controlled by the file index.js. It shows the root page of the web,
 
 Once you navigate to that URL, you can execute all the READ methods of the API explained above, WITH NO NEED TO AUTHENTICATE.
 
-<img src="/readme-images/RM-image-1.png" alt="Example Image" width="400">
+<p><img src="/readme-images/RM-image-1.png" alt="Example Image" width="400">
+</p>
 
 ### Tags.ejs
 
@@ -477,12 +478,17 @@ Nodepop store is now published in 2 languages: English and Spanish.
 
 You can use the language selector on the top right corner of your screen to switch from one to another:
 
-<img src="/readme-images/RM-image.png" alt="alt text" width="200">
+<p><img src="/readme-images/RM-image.png" alt="alt text" width="200">
+</p>
 
 Localization feature is driven by [i18next](https://github.com/i18next/i18next) library. You can find the translation files under the folder "locales".
 
 Example in English:
-<img src="/readme-images/RM-image-3.png" alt="alt text" width="300">
+
+<p><img src="/readme-images/RM-image-3.png" alt="alt text" width="300">
+</p>
 
 Example in Spanish:
-<img src="/readme-images/RM-image-4.png" alt="alt text" width="300">
+
+<p><img src="/readme-images/RM-image-4.png" alt="alt text" width="300">
+</p>
