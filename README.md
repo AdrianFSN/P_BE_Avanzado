@@ -113,7 +113,7 @@ Most of the features available when using the API routes are protected by Json W
 
 You will need to create and set your personal JWT_SECRET variable in a .env file:
 
-```json
+```js
 JWT_SECRET=YOUR PASSWORD HERE
 ```
 
@@ -129,10 +129,10 @@ Get the email and password of one of the mocked up users in data.json and get yo
 
 After login, you get a token that currently expires after 2 hours. You can modify this deadline in the file "LoginController.js", under the folder "controllers", changing this part:
 
-```json
+```js
 const tokenJWT = await jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
-        expiresIn: "2h",
-      });
+  expiresIn: "2h",
+});
 ```
 
 Then you can send it in your requests using JWT Bearer format in "headers" and "query":
