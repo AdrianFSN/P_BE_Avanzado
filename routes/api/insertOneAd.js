@@ -29,7 +29,7 @@ router.post("/", upload.single("image"), async (req, res, next) => {
       if (error) {
         console.error("Error resizing image: ", error);
       } else {
-        console.log("InsertedOneAd gets: ", result);
+        console.log("InsertOneAd gets: ", result);
       }
     });
 
