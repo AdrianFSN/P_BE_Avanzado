@@ -10,7 +10,11 @@ const AdNodepop = require("../models/AdNodepop");
 router.get("/", async function (req, res, next) {
   try {
     const tagsList = await UniqueKeysRetriever.getUniqueKeyValuesFromAPI("tag", AdNodepop);
-    res.render("tags", { tags: tagsList.results });
+    const tagsListToLocalize = tagsList.results;
+
+    console.log("esto es tagsListToLocalize: ", tagsListToLocalize);
+
+    res.render("tags", { tags: tagsList.results, tagsListToLocalize });
   } catch (error) {
     next(error);
   }

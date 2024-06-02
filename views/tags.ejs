@@ -1,21 +1,23 @@
-<head>
-    <title>
-        <%= __("Tags / categories") %>
-    </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
+<%- include('header.ejs') %>
 
-<body>
-    <h1>
-        <%= __("Available categories list") %>
-    </h1>
-    <ul>
-        <% for (let i=0; i < tags.length; i++) { %>
-            <li>
-                <%= tags[i] %>
-            </li>
-            <% } %>
-    </ul>
-</body>
 
-</html>
+    <body>
+        <h1>
+            <%= __("Available categories list") %>
+        </h1>
+        <ul>
+            <% if (tags.length> 0) { %>
+                <% tags.map(item=> { %>
+                    <% tagsListToLocalize[item]=__(item); %>
+                        <% }); %>
+                            <% for (let i=0; i < tags.length; i++) { %>
+                                <li>
+                                    <!-- <%= tags[i] %> -->
+                                    <%= tagsListToLocalize[tags[i]] %>
+                                </li>
+                                <% } %>
+                                    <% } %>
+        </ul>
+    </body>
+
+    </html>
