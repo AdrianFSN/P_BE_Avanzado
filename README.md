@@ -20,14 +20,23 @@ npm i nodemon –save-dev
 
 Set environment variables under package.json > scripts:
 
-```js
- "scripts": {
+```json
+"scripts": {
     "start": "cross-env NODEPOP_ENV=production node ./bin/www",
-    "dev": "cross-env NODEPOP_ENV=development DEBUG=nodepop:* nodemon ./bin/www"
+    "dev": "cross-env NODEPOP_ENV=development DEBUG=nodepop:* nodemon ./bin/www ",
+    "init-db": "node init-db.js",
+    "thumb-res": "npx nodemon ./services/responders/thumbnailResizerResponder.js"
   }
 ```
 
-Hence run app in dev mode (port 3000) by:
+Set a .env file:
+
+```js
+MONGODB_URL=mongodb://127.0.0.1:27017/practicanode
+JWT_SECRET=YOUR PASSWORD HERE
+```
+
+Run your app in dev mode (port 3000) by:
 
 ```sh
 npm run dev
@@ -113,7 +122,7 @@ Answer 'yes' if you are sure of what you are doing.
 
 Most of the features available when using the API routes are protected by Json Web Token to sign your authentication.
 
-You will need to create and set your personal JWT_SECRET variable in a .env file:
+You will need to create and set your personal JWT_SECRET variable in your .env file:
 
 ```js
 JWT_SECRET=YOUR PASSWORD HERE
@@ -428,7 +437,7 @@ Those will be saved under the folder "uploads/adImages". Then they are shown in 
 
 However, a new thumbnail version of each image will be made in the background, using a micro-service.
 
-### Thumbnail creator (micro-service)
+### Thumbnail creator (micro-service) (NEW!)
 
 There is a new feature to run tasks in the background using [cote](https://github.com/dashersw/cote) library.
 
