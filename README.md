@@ -97,6 +97,8 @@ This file is managed by init-db.js to reset/restart the Data Base. Please, follo
 
 The file "init-db.js" deletes the ads and users already in the Data Base and loads the 12 ads and 6 users available in "data.json".
 
+**The owner of each ad is assigned randomly from the users available in the Data Base**
+
 **WARNING: the next command deletes the whole database!!!**
 
 ```sh
@@ -119,7 +121,7 @@ JWT_SECRET=YOUR PASSWORD HERE
 
 Please, use a development tool for testing APIs like Postman to test the following methods.
 
-#### Login method
+#### Login method (NEW!)
 
 POST /api/authenticate
 
@@ -412,6 +414,76 @@ This view is controlled by the file index.js. It shows the root page of the web,
 
 Once you navigate to that URL, you can execute all the READ methods of the API explained above, WITH NO NEED TO AUTHENTICATE.
 
+<img src="RM-image-1.png" alt="Example Image" width="400">
+
 ### Tags.ejs
 
 This view is controlled by tags.js. It shows a list of available tags used in the Data Base. You can check it here: http://localhost:3000/tags
+
+## Uploading images / Micro-services (NEW!)
+
+Advertisements in our Nodepop store requires to attach an image to our articles. These images have to be .jpg, .jpeg or .png.
+
+Those will be saved under the folder "uploads/adImages". Then they are shown in the advertisements panel in http://localhost:3000, resized to 250px x 250px by CSS.
+
+However, a new thumbnail version of each image will be made in the background, using a micro-service.
+
+### Thumbnail creator (micro-service)
+
+There is a new feature to run tasks in the background using [cote](https://github.com/dashersw/cote) library.
+
+When uploading an image attached to an advertisement, an event will be emmited, with the result of a thumbnailed 100px x 100px version of the pic.
+
+You can navigate to the requester and responder under the folder "services". They are separated under "requesters" and "responders" sub-folders.
+
+The requester will go live with the app, after running:
+
+```sh
+npm run dev
+```
+
+However, you will need to execute the responder after navigating to its container folder. For example, running:
+
+```sh
+npx nodemon thumbnailResizerResponder.js
+```
+
+#### Using jimp to resize images
+
+The thumbnail image is obtained using [jimp](https://github.com/jimp-dev/jimp) library.
+
+I choosed the method "cover", to avoid distorting the pictures in case they are not squared.
+
+#### Routes to images and thumbnails
+
+Both versions of images are stored under "uploads/adImages". If you want to navigate to the path of an specific picture using your browser, try this:
+
+```
+http:localhost:3000/uploads/adImages/<image filename>
+```
+
+Please note that thumbnails have the same filename than its own bigger version, but adding "thumbnail\_" as a prefix.
+
+Examples:
+
+Full size image:
+http://localhost:3000/uploads/adImages/image-1717149695054-cabrio_car.jpg
+
+Thumbnail:
+http://localhost:3000/uploads/adImages/thumbnail_image-1717149695054-cabrio_car.jpg
+
+## Localization
+
+Nodepop store is now published in 2 languages: English and Spanish.
+
+You can use the language selector on the top right corner of your screen to switch from one to another:
+
+<img src="RM-image.png" alt="alt text" width="200">
+
+Localization feature is driven by [i18next](https://github.com/i18next/i18next) library. You can find the translation files under the folder "locales".
+
+Example in English:
+<img src="RM-image-3.png" alt="alt text" width="300">
+
+Example in Spanish:
+<img src="RM-image-4.png" alt="alt text" width="300">
