@@ -22,10 +22,10 @@ router.delete(
         try {
           fs.unlink(path.join(__dirname, "..", "..", "uploads", "adImages", ad.image), () => {
             console.log("Image deleted successfully");
-          }),
-            fs.unlink(path.join(__dirname, "..", "..", "uploads", "adImages", "thumbnail_" + ad.image), () => {
-              console.log("Thumbnail deleted successfully");
-            });
+          });
+          fs.unlink(path.join(__dirname, "..", "..", "uploads", "adImages", "thumbnail_" + ad.image), () => {
+            console.log("Thumbnail deleted successfully");
+          });
         } catch (error) {
           console.error("Error deleting image files");
         }
